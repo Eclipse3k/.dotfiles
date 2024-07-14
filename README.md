@@ -21,11 +21,3 @@ To use my dotfiles, you'll need the following dependencies installed on your sys
 - [make](https://www.gnu.org/software/make/)
 
 ### Neovim Plugins
-
-My Neovim setup uses several plugins managed by [packer.nvim](https://github.com/wbthomason/packer.nvim). Ensure you have packer installed:
-
-```bash
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-```
