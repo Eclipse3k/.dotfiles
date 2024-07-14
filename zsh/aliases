@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# +--------+
+# | System |
+# +--------+
+
+alias shutdown='shutdown now'
+alias restart='reboot'
+alias suspend='pm-suspend'
+
+# +----+
+# | ls |
+# +----+
+
+alias ls='ls --color=auto'
+alias l='ls -l'
+alias ll='ls -lahF'
+
+# +-----+
+# | Zsh |
+# +-----+
+
+alias d='dirs -v' #Print the stack of directories
+for index ({1..9}) alias "$index"="cd +${index} > /dev/null"; unset index
+
+
