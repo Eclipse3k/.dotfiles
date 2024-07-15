@@ -7,7 +7,7 @@ opt.number = true
 opt.swapfile = false
 
 -- tabs & indentation
-opt.tabstop = 8 
+opt.tabstop = 4
 opt.shiftwidth = 4
 opt.autoindent = true
 
@@ -28,4 +28,3 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- save undo-trees in files
-
