@@ -1,42 +1,45 @@
 #!/bin/bash
 
-##########
-# Neovim #
-##########
+############
+# includes #
+############
 
-rm -rf "$XDG_CONFIG_HOME/nvim"
-ln -s "$DOTFILES/nvim" "$HOME/.config"
+source ./colors.sh
 
-#######
-# ZSH #
-#######
+################
+# presentation #
+################
 
-mkdir -p "$ZDOTDIR"
-ln -sf "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
-ln -sf "$DOTFILES/zsh/zshrc" "$ZDOTDIR/.zshrc"
-ln -sf "$DOTFILES/zsh/aliases" "$ZDOTDIR/aliases"
-rm -rf "$ZDOTDIR/external"
-ln -sf "$DOTFILES/zsh/external" "$ZDOTDIR"
+echo -e "
+${yellow}
+          _ ._  _ , _ ._
+        (_ ' ( \`  )_  .__)
+      ( (  (    )   \`)  ) _)
+     (__ (_   (_ . _) _) ,__)
+           ~~\ ' . /~~
+         ,::: ;   ; :::,
+        ':::::::::::::::'
+ ____________/_ __ \____________
+|                               |
+| Welcome to Jorge's dotfiles   |
+|_______________________________|
+"
 
-########
-# TMUX #
-########
+echo -e "${yellow}!!! ${red}WARNING${yellow} !!!"
+echo -e "${light_red}This script will delete all your configuration files!"
+echo -e "${light_red}Use it at your own risks."
 
-mkdir -p "$XDG_CONFIG_HOME/tmux"
-ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.config/tmux"
-ln -sf "$DOTFILES/tmux/tmux.reset.conf" "$HOME/.config/tmux"
-rm -rf "$HOME/.config/tmux/scripts"
-ln -sf "$DOTFILES/tmux/scripts" "$HOME/.config/tmux"
-rm -rf "$HOME/.config/tmux/plugins"
-
-# Check if tpm is installed
-if [ ! -d "$TPM_PATH" ]; then
-    echo "Tmux Plugin Manager (tpm) not found, installing.. $HOME"
-    git clone https://github.com/tmux-plugins/tpm
-    mv ~/.tmux/plugins "$XDG_CONFIG_HOME/tmux/"
-    rm -rf ~/.tmux
-else
-    echo "Tmux Plugin Manager (tpm) is already installed."
+if [ $# -ne 1 ] || [ "$1" != "-y" ];
+    then
+        echo -e "${yellow}Press a key to continue...\n"
+        read key;
 fi
 
 
+###########
+# INSTALL #
+###########
+
+. "$DOTFILES/install/install-zsh.sh"
+. "$DOTFILES/install/install-nvim.sh"
+. "$DOTFILES/install/install-tmux.sh"
