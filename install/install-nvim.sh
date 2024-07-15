@@ -3,3 +3,5 @@
 rm -rf "$XDG_CONFIG_HOME/nvim"
 ln -s "$DOTFILES/nvim" "$HOME/.config"
 
+echo "Nvim configurations installed"
+

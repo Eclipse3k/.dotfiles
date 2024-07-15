@@ -5,8 +5,7 @@ if [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ]; then
     echo "Tmux Plugin Manager (tpm) not found, installing..."
     git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"
     "$XDG_CONFIG_HOME/tmux/plugins/tpm/bin/install_plugins"
-else
-    echo "Tmux Plugin Manager (tpm) is already installed."
+    echo "Leader + I to install plugins"
 fi
 
 # Symlink tmux configuration files
@@ -20,4 +19,4 @@ ln -sf "$DOTFILES/tmux/scripts" "$XDG_CONFIG_HOME/tmux/scripts"
 # Optional: Generate default tmux configuration (uncomment if needed)
 # tmux -f /dev/null show-options -s \; show-options -g \; list-keys > "$DOTFILES/tmux/tmux.defaults.conf"
 
-echo "Tmux configuration and plugins setup completed."
+echo "Tmux configuration installed"
