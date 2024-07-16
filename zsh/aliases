@@ -20,6 +20,8 @@ alias ll='ls -lahF'
 # | Zsh |
 # +-----+
 
+alias bat='batcat'
+
 alias d='dirs -v' #Print the stack of directories
 for index ({1..9}) alias "$index"="cd +${index} > /dev/null"; unset index
 
